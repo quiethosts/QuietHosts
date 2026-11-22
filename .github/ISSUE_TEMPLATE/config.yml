@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Troubleshooting
+    url: https://github.com/quiethosts/QuietHosts/blob/main/docs/troubleshooting.md
+    about: Ads that still show, antivirus prompts, Windows Defender and other problems, with what to do. Please look here first.
+  - name: User guide
+    url: https://github.com/quiethosts/QuietHosts/blob/main/docs/README.md
+    about: How to set up and use QuietHosts, and what each of its messages means.
+  - name: Frequently asked questions
+    url: https://github.com/quiethosts/QuietHosts/blob/main/docs/faq.md
+    about: Short answers to common questions.
+  - name: Report a security problem privately
+    url: https://github.com/quiethosts/QuietHosts/security/advisories/new
+    about: Please don't report security problems in public issues.
+  - name: Suggest an address for the block lists
+    url: https://github.com/quiethosts/QuietHosts/blob/main/CONTRIBUTING.md#the-block-lists
+    about: List changes come as pull requests. CONTRIBUTING.md explains the rules.

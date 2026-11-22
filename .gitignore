@@ -1,0 +1,21 @@
+# Build output
+bin/
+obj/
+out/
+artifacts/
+TestResults/
+
+# Editors
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Never publish: private notes and review data, keys, backups
+/private/
+*.pem
+*.pfx
+*.key
+*.bak
+*.bak-*
+hosts.quiethosts-*

@@ -1,0 +1,41 @@
+<Project>
+  <!-- Settings shared by every project in the repository. -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Deterministic>true</Deterministic>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <NeutralLanguage>en</NeutralLanguage>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <DebugType>embedded</DebugType>
+    <!--
+      Every build maps the repository folder to /_/, so the embedded PDB (and so stack traces) never carries the
+      builder's folder or user name. In CI the SDK also prepends its own SourceRoot map to the same /_/.
+      The compiler's pathmap separates pairs with ',' and key from value with '=', so both are doubled in the key,
+      as the SDK does for its own map; otherwise a folder name such as "Contoso, Ltd" fails every build (CS8101).
+    -->
+    <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)').Replace(',', ',,').Replace('=', '=='))=/_/</PathMap>
+
+    <!-- Version: release builds set it from the git tag with -p:Version=X.Y.Z -->
+    <Version>0.0.0-dev</Version>
+    <Product>QuietHosts</Product>
+    <Company>QuietHosts contributors</Company>
+    <Authors>QuietHosts contributors</Authors>
+    <Copyright>Copyright (c) 2026 QuietHosts contributors</Copyright>
+
+    <!-- The GitHub repository the app links to (project page, releases, issue forms). -->
+    <QuietHostsRepository>quiethosts/QuietHosts</QuietHostsRepository>
+  </PropertyGroup>
+
+  <!-- In GitHub Actions, also normalize the NuGet package paths and mark the build as a CI build. -->
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyMetadata Include="RepositoryUrl" Value="https://github.com/$(QuietHostsRepository)" />
+  </ItemGroup>
+</Project>

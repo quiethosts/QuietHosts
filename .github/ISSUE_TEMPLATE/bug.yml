@@ -1,0 +1,69 @@
+# QuietHosts' "Report a problem" link opens this form (issues/new?template=bug.yml). Keep the file name.
+name: Report a problem
+description: Something in QuietHosts doesn't work, such as an error message, or anything else that isn't a broken site, such as a change to CREDITS.md.
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. This report is public, so don't include your name, email address, user name or other personal information.
+
+        - A site or app broke after you turned QuietHosts on? Please use the [broken-site form](https://github.com/quiethosts/QuietHosts/issues/new?template=site-broke.yml) instead.
+        - A security problem? Please [report it privately](https://github.com/quiethosts/QuietHosts/security/advisories/new).
+        - Something else, such as a change to CREDITS.md? Use this form, and write n/a where a field doesn't apply.
+
+  - type: input
+    id: version
+    attributes:
+      label: QuietHosts version
+      description: About in QuietHosts shows it.
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      description: Press Windows+R, type winver and press Enter.
+      placeholder: Windows 11 24H2
+    validations:
+      required: true
+
+  - type: input
+    id: antivirus
+    attributes:
+      label: Antivirus
+      description: Which antivirus or security program do you use, if any?
+      placeholder: Microsoft Defender only
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps
+      description: What did you do, step by step?
+      placeholder: |
+        1. Opened QuietHosts
+        2. Clicked Turn on protection
+        3. Said yes when Windows asked for permission
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you see, and what did you expect instead? If QuietHosts showed an error, click Copy details in it and paste the details here. Read them before you post.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: personal-information
+    attributes:
+      label: Personal information
+      options:
+        - label: I removed personal information from this report, such as my name, email address, user name and folder names.
+          required: true

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    QuietHosts.exe: the window, plus the engine's source files compiled in (no DLLs to ship).
+  -->
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuietHosts</RootNamespace>
+    <AssemblyName>QuietHosts</AssemblyName>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <!-- Drawn by tools/make-icon.ps1. -->
+    <ApplicationIcon>QuietHosts.ico</ApplicationIcon>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <GenerateSupportedRuntime>false</GenerateSupportedRuntime>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\QuietHosts.Core\**\*.cs" Exclude="..\QuietHosts.Core\bin\**;..\QuietHosts.Core\obj\**" LinkBase="Core" />
+    <EmbeddedResource Include="..\..\lists\*.txt" LogicalName="QuietHosts.Lists.%(Filename)%(Extension)" />
+    <!-- The window's title-bar icon (all sizes) and the text behind About > View license. -->
+    <EmbeddedResource Include="QuietHosts.ico" LogicalName="QuietHosts.Icon.ico" />
+    <EmbeddedResource Include="..\..\LICENSE" LogicalName="QuietHosts.LICENSE.txt" Condition="Exists('..\..\LICENSE')" />
+  </ItemGroup>
+</Project>

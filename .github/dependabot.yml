@@ -1,0 +1,25 @@
+# Weekly update pull requests for the GitHub Actions in .github/workflows and the test project's NuGet packages.
+# Actions stay pinned to commit SHAs; Dependabot updates the SHA and the version comment together.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7 # wait a week after a release before proposing it
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  - package-ecosystem: nuget
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7 # wait a week after a release before proposing it
+    groups:
+      nuget:
+        patterns:
+          - "*"

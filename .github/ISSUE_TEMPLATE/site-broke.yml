@@ -1,0 +1,98 @@
+# QuietHosts' "Report this site on GitHub" link opens this form (issues/new?template=site-broke.yml). Keep the file name.
+name: A site or app broke
+description: Something stopped working after you turned QuietHosts on.
+labels:
+  - breakage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Reports like this keep QuietHosts' lists safe for everyone. This report is public, so don't include personal information.
+
+        Before you report, please try the steps in **Fix a site or app…** in QuietHosts:
+
+        1. Restart your browser: close all its windows, open it again and reload the page.
+        2. Try Standard: if you use Strict, click Switch to Standard.
+        3. Test with protection off: click Turn off for now, restart your browser and reload the page. If it's still broken, QuietHosts isn't the cause.
+
+  - type: input
+    id: site
+    attributes:
+      label: Site or app
+      description: The site's address, or the app's name.
+      placeholder: www.example.com
+    validations:
+      required: true
+
+  - type: textarea
+    id: whats-broken
+    attributes:
+      label: What's broken
+      description: What doesn't work? For example "the video doesn't play" or "the Pay button does nothing".
+    validations:
+      required: true
+
+  - type: dropdown
+    id: level
+    attributes:
+      label: Level
+      description: Which blocking level do you use?
+      options:
+        - Standard
+        - Strict
+    validations:
+      required: true
+
+  - type: dropdown
+    id: works-when-off
+    attributes:
+      label: Works with protection off, after a browser restart?
+      description: In Fix a site or app…, click Turn off for now, restart your browser and try the site again.
+      options:
+        - "Yes, it works with protection off"
+        - "No, it's still broken with protection off"
+        - "I couldn't try it"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: QuietHosts version
+      description: About in QuietHosts shows it.
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: Which browser and version? Leave this empty for an app.
+      placeholder: Edge, Chrome or Firefox, and its version
+    validations:
+      required: false
+
+  - type: textarea
+    id: suspected-addresses
+    attributes:
+      label: Suspected addresses
+      description: If allowing an address in Fix a site or app… fixed it, which one? Otherwise leave this empty.
+    validations:
+      required: false
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details from QuietHosts
+      description: In the Fix a site or app window, click Copy details and paste here. It lists your QuietHosts version, Windows build, state, level and how many addresses you allowed, never which ones.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: personal-information
+    attributes:
+      label: Personal information
+      options:
+        - label: I removed personal information from this report, such as my name, email address, account names and links that contain personal data.
+          required: true

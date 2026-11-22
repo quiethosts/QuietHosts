@@ -1,0 +1,161 @@
+# QuietHosts block list - MIT License - sources: CREDITS.md
+# Strict level: blocked only when Strict is chosen. Every address has a note on what may stop working.
+# Format: one address per line, optionally followed by " | company" and " | note".
+# version: 2026-11-20
+
+[tag-manager]
+googletagmanager.com | Google | forms and buttons on a few sites may stop working
+www.googletagmanager.com | Google | buttons, forms or checkout may not work on 400+ known sites, many of them shops
+
+[google-ads]
+ad.doubleclick.net | Google | links in ads and marketing emails won't open
+adservice.google.com | Google | some Google ad and Shopping clicks won't open
+clickserve.dartsearch.net | Google | some sponsored Google results won't open
+pubads.g.doubleclick.net | Google | video on sites with Google video ads may stall
+s0.2mdn.net | Google | video players on some sites may stall
+www.googleadservices.com | Google | sponsored Google results and Shopping ads won't open
+www.googletagservices.com | Google | pages waiting on Google ads may stall
+
+[amazon-ads]
+aan.amazon.com | Amazon | no known effect on PCs
+aax.amazon-adsystem.com | Amazon | a few sites may ask you to turn off your ad blocker
+
+[social-pixel]
+ads.vk.com | VK | VK's ad manager and post promotion on vk.com may break
+alb.reddit.com | Reddit | Reddit promoted-post links won't open
+ct.pinterest.com | Pinterest | Pinterest ad clicks may not open
+
+[ad-server]
+ad.mail.ru | VK (Mail.ru) | some Russian sites (dzen.ru, ok.ru payments) may break
+adengine.snigelweb.com | Snigel | videos on a few sites may not play (e.g. w3schools)
+ads.adthrive.com | Raptive (AdThrive) | video players on some recipe and sports sites may fail
+ced-ns.sascdn.com | Equativ (Smart AdServer) | some news sites may go blank (e.g. bild.de)
+go.ezodn.com | Ezoic | images and videos on some sites may not load
+s.nitropay.com | NitroPay | some sites may show an ad-block notice
+servedby.flashtalking.com | Flashtalking (Mediaocean) | links in ads and shop emails won't open
+static.criteo.net | Criteo | a few shop and news sites may break
+
+[header-bidding]
+ads.pubmatic.com | PubMatic | video or pages on a few news sites may break (e.g. The Independent)
+bh.contextweb.com | PulsePoint | some ad links may not open
+c.amazon-adsystem.com | Amazon | video and navigation on some news sites may fail (CNN, Time)
+c2shb.pubgw.yahoo.com | Yahoo | no known effect on PCs yet
+c2shb.ssp.yahoo.com | Yahoo | no known effect on PCs yet
+cdn.fuseplatform.net | Publift (Fuse) | a few sites that use Publift ads may break
+cdn.intergient.com | Playwire | a few gaming sites may break
+client.aps.amazon-adsystem.com | Amazon | some news sites may stall (e.g. Fox News, Newsweek)
+config.aps.amazon-adsystem.com | Amazon | some news sites may stall (e.g. Newsweek)
+hb.vntsm.com | Venatus Media | a few gaming sites may go blank (e.g. raider.io)
+htlbid.com | Hashtag Labs (HTL BID) | a few sites may break (e.g. hodinkee.com)
+js-sec.indexww.com | Index Exchange | video on some news sites may not play (e.g. Mashable)
+web.hb.ad.cpe.dotomi.com | Epsilon (Conversant) | some ad links may not open
+
+[native-ads]
+api.taboola.com | Taboola | Taboola ad clicks in Yahoo and AOL Mail may not open
+cdn.taboola.com | Taboola | a few news sites may break (e.g. Daily Mail, Bild, Fox Sports)
+images.outbrainimg.com | Outbrain (Teads) | pictures in 'recommended stories' boxes stay empty
+odb.outbrain.com | Outbrain (Teads) | 'recommended' and 'more stories' boxes stay empty
+s.ntv.io | Nativo | a few news sites may break
+widgets.outbrain.com | Outbrain (Teads) | 'recommended' and 'more stories' boxes stay empty
+widgets.outbrainimg.com | Outbrain (Teads) | 'recommended' boxes stay empty; some German news sites may break
+
+[video-ads]
+bea4.v.fwmrm.net | FreeWheel (Comcast) | CNN videos and live TV may not play
+capi.connatix.com | Connatix (JW Player) | videos on some news sites may not play (e.g. AccuWeather)
+cd.connatix.com | Connatix (JW Player) | videos on some news sites may not play (e.g. Salon)
+live.primis.tech | Primis | videos in articles on some news sites may not play
+mp.mmvideocdn.com | Minute Media (Voltax) | video clips on some sports sites may not play (SI, NY Post)
+player.aniview.com | Aniview | video on a few sites may not play (e.g. Odysee, Pogo)
+vid.connatix.com | Connatix (JW Player) | videos on some news sites may stay blank
+
+[popunder-redirect]
+acscdn.com | Adcash | a few sites may show an ad-block notice
+
+[anti-adblock]
+0.maturequart.com | Ad-Shield | Yahoo may show "Oops, something went wrong"
+2.maturequart.com | Ad-Shield | Yahoo may show "Oops, something went wrong"
+4.athwartwhoafat.com | Ad-Shield | Yahoo may show "Oops, something went wrong"
+4.maturequart.com | Ad-Shield | Yahoo may show "Oops, something went wrong"
+athwartwhoafat.com | Ad-Shield | Yahoo may show "Oops, something went wrong"
+btloader.com | Blockthrough | some sites may break or show an ad-block notice
+debutfiddle.com | Ad-Shield | Yahoo may show "Oops, something went wrong"
+fundingchoicesmessages.google.com | Google | cookie prompts may not show; some sites show a blocker warning
+goshsmarten.com | Ad-Shield | Yahoo may show "Oops, something went wrong"
+maturequart.com | Ad-Shield | Yahoo may show "Oops, something went wrong"
+uncoverpilot.com | Ad-Shield | Yahoo may show "Oops, something went wrong"
+
+[cookie-sync-identity]
+proc.ad.cpe.dotomi.com | Epsilon (Conversant) | some ad links may not open
+s.amazon-adsystem.com | Amazon | no known effect on PCs
+sync-tm.everesttech.net | Adobe Advertising | some ad and email links may not open
+track.adform.net | Adform | links in ads and shop emails won't open
+
+[ad-verification]
+dt.adsafeprotected.com | Integral Ad Science | some sites may show an ad-block wall
+jsconfig.adsafeprotected.com | Integral Ad Science | video on some news sites may not play
+pixel.adsafeprotected.com | Integral Ad Science | video on some news sites may not play (e.g. Reuters)
+static.adsafeprotected.com | Integral Ad Science | video on news sites may not play (Reuters, WSJ, Forbes)
+
+[affiliate]
+cdn.viglink.com | Sovrn (VigLink) | a few sites with shopping links may break (e.g. 9to5mac)
+rcm-na.amazon-adsystem.com | Amazon | Amazon product boxes on blogs go blank
+ws-na.amazon-adsystem.com | Amazon | Amazon product boxes on blogs go blank
+z-na.amazon-adsystem.com | Amazon | Amazon product boxes on blogs go blank
+
+[data-broker]
+aa.trkn.us | Claritas | some ad and email links may not open
+ad.crwdcntrl.net | Lotame | pages or videos on rtl.nl may not load
+api.permutive.com | Permutive | video on some news sites may not play (e.g. Reuters)
+bcp.crwdcntrl.net | Lotame | some ad and email links may not open
+cdn.permutive.com | Permutive | video on some news sites may not play (e.g. Reuters)
+d.agkn.com | TransUnion (Neustar) | some Google Shopping 'Visit site' clicks may fail
+dpm.demdex.net | Adobe Audience Manager | video on some streaming sites may not play (Hulu, Sky)
+solutions.cdn.optable.co | Optable | video players on a few sites may fail (e.g. open.video)
+tags.crwdcntrl.net | Lotame | 'read more' buttons on a few sites may not work
+trkn.us | Claritas | some ad and email links may not open
+
+[analytics]
+api.eu.amplitude.com | Amplitude | a few sites and apps that use Amplitude may break
+api.segment.io | Segment (Twilio) | some apps and developer tools that use Segment may show errors or not start
+app.posthog.com | PostHog | the PostHog dashboard and features on some sites may break
+b.scorecardresearch.com | Comscore | video on some TV and news sites may not play
+browser-intake-datadoghq.com | Datadog | a few sites may slow down or break
+c.go-mpulse.net | Akamai (mPulse) | a few shop sites may break
+cdn-gl.imrworldwide.com | Nielsen | video on some TV and news sites may not play (ESPN)
+cdn.amplitude.com | Amplitude | sign-up or booking on a few sites may fail
+cdn.heapanalytics.com | Heap (Contentsquare) | quote and sign-up forms on a few sites may fail
+cdn.mxpnl.com | Mixpanel | forms and buttons on a few sites may stop working
+cdn.parsely.com | Parse.ly (Automattic) | a few news sites may break (e.g. NFL videos)
+cdn.rudderlabs.com | RudderStack | apps and sites that use RudderStack may stall
+frog.wix.com | Wix | a few Wix-run sites may break (e.g. DeviantArt)
+geo.yahoo.com | Yahoo | no known effect on PCs
+google-analytics.com | Google | links or forms on a few sites may hang
+heapanalytics.com | Heap (Contentsquare) | the Heap dashboard (for site owners) won't open
+js.hs-scripts.com | HubSpot | live chat and forms on some business sites may fail
+mab.chartbeat.com | Chartbeat | headlines show a moment later on some news sites
+monorail-edge.shopifysvc.com | Shopify | gift-card entry at checkout may fail on some Shopify shops (e.g. JB Hi-Fi)
+munchkin.marketo.net | Adobe (Marketo) | forms on a few sites may fail (e.g. telus.com)
+rum.browser-intake-datadoghq.com | Datadog | a few sites may slow down or break
+s.go-mpulse.net | Akamai (mPulse) | checkout on a few shops may fail (e.g. Nike)
+sb.scorecardresearch.com | Comscore | video on some TV and news sites may not play
+sdk.mrf.io | Marfeel | a few news sites may break
+secure-us.imrworldwide.com | Nielsen | video on some TV and news sites may not play
+ssl.google-analytics.com | Google | links or forms on a few sites may hang
+static.chartbeat.com | Chartbeat | video on a few news sites may not play
+stats.wp.com | Automattic (WordPress.com) | the WordPress.com dashboard may break
+www.google-analytics.com | Google | links or forms on a few sites may hang
+
+[session-recording]
+cdn.lr-ingest.com | LogRocket | a few web apps that use LogRocket may not load
+realtime.luckyorange.com | Lucky Orange | live chat and surveys on some shop sites may not work
+
+[app-ads]
+api2.branch.io | Branch Metrics | 'get the app' QR codes and app links on some sites may fail
+app.adjust.com | Adjust | some ad, email and 'get the app' links won't open
+app.appsflyer.com | AppsFlyer | some ad, email and 'get the app' links won't open
+cdn.branch.io | Branch Metrics | 'open in app' banners and some referral sign-ups may fail
+control.kochava.com | Kochava | some app-install and streaming ad links won't open
+
+[other]
+cdn.onesignal.com | OneSignal | site notifications and buttons on a few sites may fail
+faves.grow.me | Mediavine (Grow) | save-recipe buttons on recipe blogs may not work

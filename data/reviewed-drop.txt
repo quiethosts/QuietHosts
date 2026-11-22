@@ -1,0 +1,207 @@
+# Addresses that were reviewed and deliberately NOT blocked by QuietHosts, with the reason.
+# Don't propose these again without new evidence. Format: address | reason
+
+0.ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+0.athwartwhoafat.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+0.debutfiddle.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+0.softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+1.ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+1.athwartwhoafat.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+1.debutfiddle.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+1.maturequart.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+1.softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+2.ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+2.athwartwhoafat.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+2.debutfiddle.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+2.goshsmarten.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+2.softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+2975c.v.fwmrm.net | no site loads it any more
+3.ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+3.athwartwhoafat.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+3.debutfiddle.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+3.maturequart.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+3.softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+4.ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+4.debutfiddle.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+4.softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+5.ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+5.athwartwhoafat.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+5.debutfiddle.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+5.maturequart.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+5.softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+6.ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+6.athwartwhoafat.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+6.debutfiddle.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+6.maturequart.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+6.softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+7.ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+7.athwartwhoafat.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+7.debutfiddle.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+7.maturequart.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+7.softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+8.ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+8.athwartwhoafat.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+8.debutfiddle.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+8.maturequart.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+8.softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+9.ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+9.athwartwhoafat.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+9.debutfiddle.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+9.maturequart.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+9.softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+ackzany.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+ad.gt | bare name; the real ad and tracking addresses use other names
+adjust.com | company website, no blocking value
+adm.hotjar.com | only ad-block test pages load it
+adroll.com | company website, no blocking value
+ads-api.tiktok.com | dashboard or tool for advertisers or site owners, no blocking value
+ads-sg.tiktok.com | dashboard or tool for advertisers or site owners, no blocking value
+ads.pinterest.com | dashboard or tool for advertisers or site owners, no blocking value
+ads.snapchat.com | dashboard or tool for advertisers or site owners, no blocking value
+ads.tiktok.com | dashboard or tool for advertisers or site owners, no blocking value
+ads.tremorhub.com | bare name; the real ad and tracking addresses use other names
+adservetx.media.net | does not resolve in public DNS
+adsrvr.org | bare name; the real ad and tracking addresses use other names
+adtech.yahooinc.com | company website, no blocking value
+advertising-api-eu.amazon.com | dashboard or tool for advertisers or site owners, no blocking value
+advertising.yahoo.com | old company domain, no blocking value
+advertising.yandex.ru | company website, no blocking value
+afs.googlesyndication.com | only ad-block test pages load it
+amazon-adsystem.com | bare name; the real ad and tracking addresses use other names
+analytics.adobe.io | dashboard or tool for advertisers or site owners, no blocking value
+analytics.google.com | the Google Analytics dashboard; site owners need it
+analytics.pinterest.com | dashboard or tool for advertisers or site owners, no blocking value
+analytics.query.yahoo.com | only ad-block test pages load it
+api.amplitude.com | reviews on some shop sites (e.g. IKEA) and some pages break; AdGuard DNS and OISD leave it unblocked
+api.bugsnag.com | developer dashboard, no blocking value
+api.luckyorange.com | only ad-block test pages load it
+api.mouseflow.com | dashboard or tool for advertisers or site owners, no blocking value
+app.bugsnag.com | developer dashboard, no blocking value
+app.getsentry.com | error reports for developers, no tracking value
+applovin.com | company website, no blocking value
+appmetrica.yandex.ru | dashboard or tool for advertisers or site owners, no blocking value
+appsflyer.com | company website, no blocking value
+beap.gemini.yahoo.com | does not resolve in public DNS
+bidswitch.net | does not resolve in public DNS
+bluekai.com | the service has shut down
+briarcostshadow.com | not in any maintained block list
+browser.sentry-cdn.com | error-report loader; some web apps break without it
+business-api.tiktok.com | dashboard or tool for advertisers or site owners, no blocking value
+c2.popads.net | does not resolve in public DNS
+careers.hotjar.com | job listings page, no blocking value
+casalemedia.com | bare name; the real ad and tracking addresses use other names
+cdn-test.mouseflow.com | only ad-block test pages load it
+cdn.indexexchange.com | holds only the company's public files, no ad code
+cdn.kargo.com | no site loads it any more
+cdn.segment.com | sign-in and features on many web apps need it
+claritybt.freshmarketer.com | only ad-block test pages load it
+click.googleanalytics.com | only ad-block test pages load it
+coinimp.com | miner company website; the miner loads from other names
+connect.facebook.net | not in any maintained block list; Facebook sign-in buttons need it
+contextweb.com | bare name; the real ad and tracking addresses use other names
+criteo.com | company website, no blocking value
+crwdcntrl.net | bare name; the real ad and tracking addresses use other names
+cs.luckyorange.net | only ad-block test pages load it
+d.reddit.com | no site loads it any more
+dai.google.com | not in any maintained block list; some live TV streams need it
+dcba.popcash.net | does not resolve in public DNS
+doubleverify.com | company website, no blocking value
+eu.posthog.com | not in any maintained block list
+events.hotjar.io | does not resolve in public DNS
+events.segment.io | does not resolve in public DNS
+exoclick.com | company website, no blocking value
+extmaps-api.yandex.net | only ad-block test pages load it
+fingerprintjs.com | old company domain, no blocking value
+fls-na.amazon-adsystem.com | does not resolve in public DNS
+fls-na.amazon.com | Amazon gift cards, Kindle and app licences break
+freshmarketer.com | company website, no blocking value
+fwtracks.freshmarketer.com | only ad-block test pages load it
+gemini.yahoo.com | the service has shut down
+googleadservices.com | bare name; the real ad and tracking addresses use other names
+googletagservices.com | does not resolve in public DNS
+graph.facebook.com | not in any maintained block list; Facebook sign-in needs it
+graph.instagram.com | not in any maintained block list; Instagram embeds need it
+gtm.mouseflow.com | only ad-block test pages load it
+hpr.outbrain.com | does not resolve in public DNS
+i.instagram.com | not in any maintained block list; Instagram needs it
+ib.adnxs.com | owned by Microsoft (Xandr); Defender may reset hosts files that block Microsoft names
+identify.hotjar.com | only ad-block test pages load it
+indexexchange.com | company website, no blocking value
+ingest.sentry.io | does not resolve in public DNS
+inmobi.com | company website, no blocking value
+insightexpressai.com | bare name; the real ad and tracking addresses use other names
+insights.adsrvr.org | does not resolve in public DNS
+insights.hotjar.com | dashboard or tool for advertisers or site owners, no blocking value
+ironsource.mobi | bare name; the real ad and tracking addresses use other names
+js.zi-scripts.com | not in any maintained block list
+juicyads.com | company website, no blocking value
+kochava.com | company website, no blocking value
+liftoff.io | company website, no blocking value
+log.fc.yahoo.com | may break Yahoo apps; only ad-block test pages load it
+log.outbrain.com | no site loads it any more
+luckyorange.com | company website, no blocking value
+media.net | company website, no blocking value
+mediavisor.doubleclick.net | only ad-block test pages load it
+metrics.adobe.com | no site loads it any more
+metrika.yandex.ru | dashboard or tool for advertisers or site owners, no blocking value
+mgid.com | company website, no blocking value
+mineralt.io | the service has shut down
+mouseflow.com | company website, no blocking value
+mssl.fwmrm.net | breaks video players on many sites
+nr.taboola.com | no site loads it any more
+o0.ingest.sentry.io | error reports for developers, no tracking value
+oas.openx.net | does not resolve in public DNS
+offerwall.yandex.net | no site loads it any more
+omtrdc.net | does not resolve in public DNS
+openx.net | bare name; the real ad and tracking addresses use other names
+opr.adx.opera.com | does not resolve in public DNS
+pagead.l.doubleclick.net | only a DNS alias target; a hosts file never matches it
+pangleglobal.com | company website, no blocking value
+partnerads.ysm.yahoo.com | only ad-block test pages load it
+pbs.yahoo.com | Yahoo's ad auction server (Prebid Server); Yahoo pages may break without it
+pixel.quora.com | no site loads it any more
+pixel.redditmedia.com | does not resolve in public DNS
+popads.net | company website, no blocking value
+popmyads.com | company website, no blocking value
+prod.bidr.io | does not resolve in public DNS
+propellerads.com | company website, no blocking value
+propellerclick.com | bare name; the real ad and tracking addresses use other names
+pubmatic.com | company website, no blocking value
+qevents.quora.com | no site loads it any more
+quantcast.com | company website, no blocking value
+rubiconproject.com | old company domain, no blocking value
+rudderstack.com | not in any maintained block list
+safeframe.googlesyndication.com | does not resolve in public DNS
+search.spotxchange.com | does not resolve in public DNS
+sessions.bugsnag.com | error reports for developers, no tracking value
+sharethrough.com | company website, no blocking value
+smartyads.com | company website, no blocking value
+snowplowanalytics.com | old company domain, no blocking value
+softlypacesock.com | Ad-Shield shard, left out: Strict already blocks 9 Ad-Shield addresses, and blocking more may make Yahoo show "Oops, something went wrong"
+spotxchange.com | bare name; the real ad and tracking addresses use other names
+stackadapt.com | company website, no blocking value
+static.media.net | only ad-block test pages load it
+stickyadstv.com | bare name; the real ad and tracking addresses use other names
+surveys.hotjar.com | survey pages people choose to open, not a tracker
+sync-amz.ads.yieldmo.com | does not resolve in public DNS
+sync.kargo.com | no site loads it any more
+sync.search.spotxchange.com | does not resolve in public DNS
+t.oa.opera.com | not in any maintained block list
+tagmanager.google.com | not in any maintained block list; it is the Tag Manager dashboard
+tags.bluekai.com | does not resolve in public DNS
+tools.mouseflow.com | internal company tool, not a tracker
+tr.facebook.com | no site loads it any more
+tracker.snowplowanalytics.com | does not resolve in public DNS
+trafficjunky.net | bare name; the real ad and tracking addresses use other names
+tremorhub.com | bare name; the real ad and tracking addresses use other names
+udc.yahoo.com | not in any maintained block list; Yahoo sign-in needs it
+udcm.yahoo.com | may break Yahoo apps; only ad-block test pages load it
+unityads.unity3d.com | company website, no blocking value
+upload.luckyorange.net | no site loads it any more
+us-ads.openx.net | no site loads it any more
+us.i.posthog.com | not in any maintained block list
+vungle.com | old company domain, no blocking value
+w1.luckyorange.com | only ad-block test pages load it
+widgets.pinterest.com | not in any maintained block list; Pinterest buttons need it
+www.coinimp.com | miner company website; the miner loads from other names
+www.ezojs.com | images and pages on some sites break without it

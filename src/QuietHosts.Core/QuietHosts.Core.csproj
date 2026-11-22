@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    The engine: hosts-file parsing and writing, lists, guard, settings, elevated commands.
+    No UI. This library exists so the tests can reference it; the app does NOT reference it,
+    it compiles these same source files into QuietHosts.exe, so the release is one file.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>QuietHosts.Core</RootNamespace>
+    <AssemblyName>QuietHosts.Core</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\lists\*.txt" LogicalName="QuietHosts.Lists.%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="QuietHosts.Tests" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,60 @@
+# Builds and tests QuietHosts on every push to main and every pull request.
+# For pushes to main it also keeps the built QuietHosts.exe for 7 days. Pull requests get no exe
+# artifact, so a build of someone's unreviewed change is never offered under this repository's name.
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+# No permissions by default. Each job asks for the minimum it needs.
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and test
+    # A fixed image: windows-latest can move to a new Windows version without notice.
+    runs-on: windows-2025
+    # The window tests run one at a time: the tests take 7 to 20 minutes on a fast PC, and runners are slower.
+    timeout-minutes: 60
+    permissions:
+      contents: read # to check out the code
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      REPOSITORY: ${{ github.repository }}
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+      DOTNET_NOLOGO: "1"
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up .NET (SDK version from global.json)
+        uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          global-json-file: global.json
+
+      # The repository the app links to comes from GitHub, as in release builds.
+      - name: Build (Release)
+        run: dotnet build QuietHosts.slnx -c Release "-p:QuietHostsRepository=$env:REPOSITORY"
+
+      - name: Test (Release)
+        run: dotnet test QuietHosts.slnx -c Release --no-build "-p:QuietHostsRepository=$env:REPOSITORY"
+
+      - name: Keep QuietHosts.exe for 7 days
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: QuietHosts-exe
+          path: src/QuietHosts/bin/Release/net48/QuietHosts.exe
+          if-no-files-found: error
+          retention-days: 7

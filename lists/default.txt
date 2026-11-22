@@ -1,0 +1,851 @@
+# QuietHosts block list - MIT License - sources: CREDITS.md
+# Standard level: blocked for everyone who turns QuietHosts on.
+# Format: one address per line, optionally followed by " | company" and " | note".
+# version: 2026-11-20
+
+[google-ads]
+adclick.g.doubleclick.net | Google
+ade.googlesyndication.com | Google
+cm.g.doubleclick.net | Google
+fls.doubleclick.net | Google
+googleads.g.doubleclick.net | Google
+googleads4.g.doubleclick.net | Google
+m.doubleclick.net | Google
+mail-ads.google.com | Google
+pagead2.googleadservices.com | Google
+pagead2.googlesyndication.com | Google | some sites and web games may not load or may show an ad-block notice
+partner.googleadservices.com | Google
+s1.2mdn.net | Google
+securepubads.g.doubleclick.net | Google | some sites may break or show an ad-block notice (e.g. Downdetector)
+static.doubleclick.net | Google
+stats.g.doubleclick.net | Google
+syndicatedsearch.goog | Google
+td.doubleclick.net | Google
+tpc.googlesyndication.com | Google | ad previews in Google's ad tools may be blank
+www.adsensecustomsearchads.com | Google
+
+[amazon-ads]
+aax-eu.amazon-adsystem.com | Amazon
+aax-fe.amazon-adsystem.com | Amazon
+aax-us-east.amazon-adsystem.com | Amazon
+aax-us-pdx.amazon-adsystem.com | Amazon
+web-banner.ads.aps.amazon-adsystem.com | Amazon
+web-video.ads.aps.amazon-adsystem.com | Amazon
+web.ads.aps.amazon-adsystem.com | Amazon
+
+[social-pixel]
+a.quora.com | Quora
+analytics-ipv6.tiktokw.us | TikTok (ByteDance)
+analytics-sg.tiktok.com | TikTok (ByteDance)
+analytics.tiktok.com | TikTok (ByteDance)
+analytics.us.tiktok.com | TikTok (ByteDance)
+conversions-config.reddit.com | Reddit
+pixel-config.reddit.com | Reddit
+pixel.facebook.com | Meta
+pixel.reddit.com | Reddit
+q.quora.com | Quora
+sc-static.net | Snap
+static.ads-twitter.com | X (Twitter)
+tr.snapchat.com | Snap
+tr6.snapchat.com | Snap
+trk.pinterest.com | Pinterest
+trk2.pinterest.com | Pinterest
+
+[ad-server]
+a.adtng.com | TrafficJunky (Aylo)
+a.exdynsrv.com | ExoClick
+a.exoclick.com | ExoClick
+a.exosrv.com | ExoClick
+a.orbsrv.com | ExoClick
+a.pub.network | Freestar
+a.realsrv.com | ExoClick
+ad-delivery.net |  | a few sites may show an ad-block notice
+ad.a-ads.com | A-ADS
+ad.broadstreetads.com | Broadstreet Ads
+adfox.yandex.ru | Yandex
+adfstat.yandex.ru | Yandex
+ads.adfox.ru | Yandex
+ads.blogherads.com | SHE Media (BlogHer)
+ads.exoclick.com | ExoClick
+ads.exosrv.com | ExoClick
+ads.juicyads.com | JuicyAds
+ads.trafficjunky.net | TrafficJunky (Aylo)
+ads.yahoo.com | Yahoo
+adserver.juicyads.com | JuicyAds
+an.facebook.com | Meta
+an.yandex.ru | Yandex
+bd.raptivecdn.com | Raptive
+bdv.bidvertiser.com | Bidvertiser
+bs.yandex.ru | Yandex
+c.gumgum.com | GumGum
+cas.criteo.com | Criteo
+cbjs.baidu.com | Baidu
+cdn-ima.33across.com | 33Across
+cdn.broadstreetads.com | Broadstreet Ads
+cdn.browsiprod.com | Browsi
+cdn.flashtalking.com | Flashtalking (Mediaocean)
+cdn.show-sb.com | Adsterra
+ck.juicyads.com | JuicyAds
+contextual.media.net | Media.net
+cpro.baidu.com | Baidu
+cpro.baidustatic.com | Baidu
+creativecdn.com | RTB House
+ctrack.trafficjunky.net | TrafficJunky (Aylo)
+d.adroll.com | AdRoll (NextRoll)
+d9.flashtalking.com | Flashtalking (Mediaocean)
+dis.criteo.com | Criteo
+dis.us.criteo.com | Criteo
+dup.baidustatic.com | Baidu
+dynamic.criteo.com | Criteo
+eclick.baidu.com | Baidu
+ht-cdn2.adtng.com | TrafficJunky (Aylo)
+htl-cdn.adtng.com | TrafficJunky (Aylo)
+hw-cdn2.adtng.com | TrafficJunky (Aylo)
+i.jads.co | JuicyAds
+imp-dev.mediavine.com | Mediavine
+imps.monu.delivery | Monumetric
+invstatic101.creativecdn.com | RTB House
+js.cabnnr.com | ExoClick
+jssdk.tsyndicate.com | TrafficStars
+keywords.mediavine.com | Mediavine
+lcdn.tsyndicate.com | TrafficStars
+logger.adthrive.com | Raptive (AdThrive)
+main.exoclick.com | ExoClick
+media.trafficjunky.net | TrafficJunky (Aylo)
+nytrng.com | Voltn
+pos.baidu.com | Baidu
+poweredby.jads.co | JuicyAds
+px.adx.opera.com | Opera
+pxl-us.tsyndicate.com | TrafficStars
+pxl.tsyndicate.com | TrafficStars
+r-eu.tsyndicate.com | TrafficStars
+request-global.czilladx.com | Coinzilla
+res.adx.opera.com | Opera
+res.oa.opera.com | Opera
+resources.infolinks.com | Infolinks
+router.infolinks.com | Infolinks
+rpc-php.trafficfactory.biz | Traffic Factory
+s-odx.oleads.com | Opera
+s.adx.opera.com | Opera
+s.orbsrv.com | ExoClick
+s2.adform.net | Adform
+scripts.journeymv.com | Mediavine (Journey)
+scripts.mediavine.com | Mediavine
+servedbyadbutler.com | AdButler
+server.cpmstar.com | CPMStar
+socialcanvas-api.kargo.com | Kargo
+socialcanvas-cdn.kargo.com | Kargo
+sslwidget.criteo.com | Criteo
+static.criteo.com | Criteo
+static.yieldmo.com | Yieldmo
+stormgate.production.raptive.com | Raptive
+syndication.exdynsrv.com | ExoClick
+syndication.exoclick.com | ExoClick
+syndication.exosrv.com | ExoClick
+syndication.realsrv.com | ExoClick
+t.adx.opera.com | Opera
+t.seedtag.com | Seedtag
+tcimp.zog.link | ExoClick
+tsyndicate.com | TrafficStars
+widget.criteo.com | Criteo
+www.effectivecreativeformat.com | Adsterra
+www.highcpmcreativeformat.com | Adsterra
+www.highperformanceformat.com | Adsterra
+www.profitablecreativeformat.com | Adsterra
+www.topcpmcreativeformat.com | Adsterra
+www.topcreativeformat.com | Adsterra
+www18.smartadserver.com | Equativ (Smart AdServer)
+xapi.juicyads.com | JuicyAds
+ylx-1.com | Yllix
+ylx-4.com | Yllix
+
+[ad-exchange]
+ad.360yield.com | Improve Digital (Azerion)
+ad.ipredictive.com | Viant (Adelphic)
+ad.turn.com | Nexxen (Amobee)
+adx2.adform.net | Adform
+ash.creativecdn.com | RTB House
+b1h.zemanta.com | Outbrain (Zemanta)
+bid.g.doubleclick.net | Google
+c21lg-d.media.net | Media.net
+dsp-2.presage.io | Ogury
+dsp.adkernel.com | AdKernel
+dx.mountain.com | MNTN
+go.mediagotechnology.com | MediaGo (Baidu)
+gs.mountain.com | MNTN
+insight.adsrvr.org | The Trade Desk
+js.adsrvr.org | The Trade Desk
+optimized-by.rubiconproject.com | Magnite
+pixel.sojern.com | Sojern
+px.mountain.com | MNTN
+pxl-eu.rtb.tsyndicate.com | TrafficStars
+rtb.adentifi.com | AdTheorent
+srv.stackadapt.com | StackAdapt
+t.pubmatic.com | PubMatic
+yandexadexchange.net | Yandex
+
+[header-bidding]
+aax-dtb-cf.amazon-adsystem.com | Amazon
+aax-dtb-web.amazon-adsystem.com | Amazon
+ads.servenobid.com | NoBid
+ads.yieldmo.com | Yieldmo
+adx.adform.net | Adform
+ap.lijit.com | Sovrn
+apex.go.sonobi.com | Sonobi
+api.receptivity.io
+as.casalemedia.com | Index Exchange
+beacon.bidder.taboola.com | Taboola
+bidder.criteo.com | Criteo
+btlr.sharethrough.com | Sharethrough (Equativ)
+c.pub.network | Freestar
+c3.a-mo.net | AMX RTB (Monet Engine)
+cdn.adpushup.com | AdPushup
+cdn.indexww.com | Index Exchange
+direct.adsrvr.org | The Trade Desk
+display.bidder.taboola.com | Taboola
+elb.the-ozone-project.com | Ozone Project
+ex.ingage.tech | Insticator
+exchange.journeymv.com | Mediavine (Journey)
+exchange.kueezrtb.com | Kueez
+exchange.mediavine.com | Mediavine
+exchange.postrelease.com | Nativo
+fast.nexx360.io | Nexx360
+fastlane.rubiconproject.com | Magnite
+g2.gumgum.com | GumGum
+grid-bidder.criteo.com | Criteo
+hb.minutemedia-prebid.com | Minute Media
+hb.trustedstack.com | TrustedStack (Media.net)
+hb.undertone.com | Undertone
+hb.yellowblue.io | Rise
+hblg.media.net | Media.net
+hbopenbid.pubmatic.com | PubMatic
+hbx.media.net | Media.net
+htlb.casalemedia.com | Index Exchange
+krk2.kargo.com | Kargo
+mp.4dex.io | Adagio
+mweb-hb.presage.io | Ogury
+native.bidder.taboola.com | Taboola
+navvy.media.net | Media.net
+onetag-sys.com | OneTag
+openads.adsrvr.org | The Trade Desk
+openbid.pubmatic.com | PubMatic
+pbs-publift-us.ay.delivery | Assertive Yield
+pbs-raptive-us.ay.delivery | Assertive Yield
+pbs-us-east.ay.delivery | Assertive Yield
+pbs.intergient.com | Playwire
+pbs.nextmillmedia.com | Next Millennium Media
+pbs.optidigital.com | Opti Digital
+pr-bh.ybp.yahoo.com | Yahoo
+prebid-a.rubiconproject.com | Magnite
+prebid-server.rubiconproject.com | Magnite
+prebid-us.creativecdn.com | RTB House
+prebid.a-mo.net | AMX RTB (Monet Engine)
+prebid.cootlogix.com | Vidazoo (Cootlogix)
+prebid.media.net | Media.net
+prebid.production.adthrive.com | Raptive (AdThrive)
+prebid.pubmatic.com | PubMatic
+prebid2.production.adthrive.com | Raptive (AdThrive)
+prebidsrvr.cootlogix.com | Vidazoo (Cootlogix)
+prg.smartadserver.com | Equativ (Smart AdServer)
+prg8.smartadserver.com | Equativ (Smart AdServer)
+raven-edge.aditude.io | Aditude
+raven-static.aditude.io | Aditude
+rt.marphezis.com | Brightcom
+rtb.openx.net | OpenX
+s.seedtag.com | Seedtag
+s2s.t13.io | Freestar
+script.4dex.io | Adagio
+scripts.scriptwrapper.com
+secure-assets.rubiconproject.com | Magnite
+shb.richaudience.com | Rich Audience
+ssb-global.smartadserver.com | Equativ (Smart AdServer)
+ssc.33across.com | 33Across
+static.kueezrtb.com | Kueez
+targeting.unrulymedia.com | Nexxen (Unruly)
+tlx.3lift.com | TripleLift
+ut.pubmatic.com | PubMatic
+wnsrvbjmeprtfrnfx.ay.delivery | Assertive Yield
+www3.smartadserver.com | Equativ (Smart AdServer)
+
+[native-ads]
+amplify.outbrain.com | Outbrain (Teads)
+assets.revcontent.com | Revcontent
+c.mgid.com | MGID
+cdn.mgid.com | MGID
+cdn.revcontent.com | Revcontent
+cds.taboola.com | Taboola
+eqt-gc.rendering.sharethrough.com | Sharethrough (Equativ)
+ib.3lift.com | TripleLift
+images-dup-c.taboola.com | Taboola
+images-dup-control.taboola.com | Taboola
+images.taboola.com | Taboola
+imprchmp.taboola.com | Taboola
+jadserve.postrelease.com | Nativo
+jsc.mgid.com | MGID
+log.outbrainimg.com | Outbrain (Teads)
+mv.outbrain.com | Outbrain (Teads) | some German news sites may break (e.g. welt.de)
+native.sharethrough.com | Sharethrough (Equativ)
+nr-events.taboola.com | Taboola
+paid.outbrain.com | Outbrain (Teads)
+pips.taboola.com | Taboola
+pm-widget.taboola.com | Taboola
+psb.taboola.com | Taboola
+servicer.mgid.com | MGID
+tags.revcontent.com | Revcontent
+tcheck.outbrainimg.com | Outbrain (Teads)
+tr.outbrain.com | Outbrain (Teads)
+trace.mediago.io | MediaGo (Baidu)
+trc-events.taboola.com | Taboola
+trc.taboola.com | Taboola
+trends.revcontent.com | Revcontent
+trendsp.revcontent.com | Revcontent
+widget-pixels.outbrain.com | Outbrain (Teads)
+www.dianomi.com | Dianomi
+www.zergnet.com | ZergNet
+
+[video-ads]
+a.teads.tv | Teads
+ads.stickyadstv.com | FreeWheel (Comcast)
+cdn.teads.tv | Teads
+ins.connatix.com | Connatix (JW Player)
+pl.connatix.com | Connatix (JW Player)
+pl.primis.tech | Primis
+s.innovid.com | Innovid (Mediaocean)
+sdk.streamrail.com | Unity (ironSource)
+t.teads.tv | Teads
+vid-io-iad.springserve.com | Magnite (SpringServe)
+vid.springserve.com | Magnite (SpringServe)
+video-ad-stats.googlesyndication.com | Google
+vidstat.taboola.com | Taboola
+xvacdn77.tsyndicate.com | TrafficStars
+
+[popunder-redirect]
+a.magsrv.com | ExoClick
+a.o333o.com | AdSpyglass
+a.pemsrv.com | ExoClick
+afders.org | Adsterra
+aqml.org | Adsterra
+bicea.org | Adsterra
+bobapsoabauns.com | PropellerAds (Monetag)
+breedsmuteexams.com | Adsterra
+c1.popads.net | PopAds
+cdn.popcash.net | PopCash
+cdn.popmyads.com | PopMyAds
+cdn.tapioni.com | AdSpyglass
+cdn.tsyndicate.com | TrafficStars
+cdn2.popcash.net | PopCash
+cdn2.tapioni.com | AdSpyglass
+chaseherbalpasty.com | Clickadu
+chestgoingpunch.com | Clickadu
+clickadu.com | Clickadu
+degreeeruptionpredator.com | Adsterra
+groleegni.net | PropellerAds (Monetag)
+grookilteepsou.net | PropellerAds (Monetag)
+gummy-debt.com | HilltopAds
+ibeeckaidse.net | PropellerAds (Monetag)
+js.juicyads.com | JuicyAds
+my.rtmark.net | PropellerAds (Monetag)
+ninoglostoay.com | PropellerAds (Monetag)
+oclaserver.com | PropellerAds (Monetag)
+onclickads.net | PropellerAds (Monetag)
+organic-package.com | HilltopAds
+oversizedsixtieswiry.com | Clickadu
+phenver.com | PropellerAds (Monetag)
+popcash.net | PopCash
+portalfluently.com
+propeller-tracking.com | PropellerAds (Monetag)
+ps.popcash.net | PopCash
+quarrelsomebitter.com | HilltopAds
+s.magsrv.com | ExoClick
+s.pemsrv.com | ExoClick
+serve.popads.net | PopAds
+shameful-farm.com | HilltopAds
+typicallyuncovernull.com | Adsterra
+tzegilo.com | PropellerAds (Monetag)
+world.popadscdn.net | PopAds
+
+[push-ads]
+cdn.izooto.com | iZooto
+cdn.stgcdn.com | RichAds
+eu.convers.link | RichAds
+in-page-push.com | PropellerAds (Monetag)
+notix.io | PropellerAds (Notix)
+pushame.com | PropellerAds (Monetag)
+pushimg.com | PropellerAds (Monetag)
+pushno.com | PropellerAds (Monetag)
+pushub.net | Pushub
+
+[anti-adblock]
+api.btloader.com | Blockthrough
+cdn.api.btloader.com | Blockthrough
+cdn.btloader.com | Blockthrough
+childlikeform.com | Admiral
+delivery.adrecover.com | AdRecover
+merequartz.com | Admiral
+reconditerespect.com | Admiral
+spellknight.com | Admiral
+
+[cookie-sync-identity]
+1x1.a-mo.net | AMX RTB (Monet Engine)
+3p-udc.yahoo.com | Yahoo
+a.rfihub.com | Zeta Global
+a.sportradarserving.com | Sportradar
+a.tribalfusion.com | Exponential Interactive (Tribal Fusion)
+adobe-sync.dotomi.com | Epsilon (Conversant)
+ads.creative-serving.com | Platform161
+adswizz-match.dotomi.com | Epsilon (Conversant)
+agent.intentiq.com | Intent IQ
+am-match.taboola.com | Taboola
+america-ad.360yield.com | Improve Digital (Azerion)
+amobee-partners.tremorhub.com | Nexxen (Tremor)
+api.id5-sync.com | ID5
+api.intentiq.com | Intent IQ
+api.rlcdn.com | LiveRamp
+apps.smartadserver.com | Equativ (Smart AdServer)
+at.teads.tv | Teads
+ats.rlcdn.com | LiveRamp
+azenduser.adsrvr.org | The Trade Desk
+b-code.liadm.com | LiveIntent
+b1-use1.outbrain.com | Outbrain (Teads)
+b1sync.outbrain.com | Outbrain (Teads)
+b1sync.zemanta.com | Outbrain (Zemanta)
+beachfront-match.dotomi.com | Epsilon (Conversant)
+beacon.lynx.cognitivlabs.com | Cognitiv
+bttrack.com | Bidtellect
+c1.adform.net | Adform
+cdn.hadronid.net | Audigent (Hadron ID)
+cdn.id5-sync.com | ID5
+cdn.prod.uidapi.com | The Trade Desk (UID2)
+cdn.undertone.com | Undertone
+ce.lijit.com | Sovrn
+cks.connatix.com | Connatix (JW Player)
+cm.adform.net | Adform
+cm.adgrx.com | AdGear (Samsung Ads)
+cm.ctnsnet.com | Crimtan
+cm.everesttech.net | Adobe Advertising
+cm.mgid.com | MGID
+cms.analytics.yahoo.com | Yahoo
+cms.quantserve.com | Quantcast
+connectid.analytics.yahoo.com | Yahoo
+cpm.chocolateplatform.com | Vdopia (Chocolate Platform)
+crb.kargo.com | Kargo
+cs-rtb.minutemedia-prebid.com | Minute Media
+cs-server-s2s.yellowblue.io | Rise
+cs-tam.minutemedia-prebid.com | Minute Media
+cs-tam.yellowblue.io | Rise
+cs.admanmedia.com | Adman Media
+cs.emxdgt.com | EMX Digital
+cs.media.net | Media.net
+cs.minutemedia-prebid.com | Minute Media
+cs.seedtag.com | Seedtag
+cs.yellowblue.io | Rise
+csync.copper6.com | Copper6
+csync.loopme.me | LoopMe
+csync.smartadserver.com | Equativ (Smart AdServer)
+csync.smilewanted.com | SmileWanted
+d-code.liadm.com | LiveIntent
+d.turn.com | Nexxen (Amobee)
+data.adsrvr.org | The Trade Desk
+dclk-match.dotomi.com | Epsilon (Conversant)
+di.rlcdn.com | LiveRamp
+dis.eu.criteo.com | Criteo
+dmp.v.fwmrm.net | FreeWheel (Comcast)
+dsp.360yield.com | Improve Digital (Azerion)
+dsp.v.fwmrm.net | FreeWheel (Comcast)
+dsum-sec.casalemedia.com | Index Exchange
+dsum.casalemedia.com | Index Exchange
+e1.emxdgt.com | EMX Digital
+eb2.3lift.com | TripleLift
+enduser.adsrvr.org | The Trade Desk
+esp.rtbhouse.com | RTB House
+eu-u.openx.net | OpenX
+eus.rubiconproject.com | Magnite
+g.jwpsrv.com | JW Player
+gem.gbc.criteo.com | Criteo
+google.partners.tremorhub.com | Nexxen (Tremor)
+gum.criteo.com | Criteo
+gum.us.criteo.com | Criteo
+gumi.criteo.com | Criteo
+gw-iad-bid.ymmobi.com
+i.connectad.io | ConnectAd
+i.liadm.com | LiveIntent
+i.w55c.net | Roku (dataxu)
+ice.360yield.com | Improve Digital (Azerion)
+id.a-mx.com | AMX RTB (Monet Engine)
+id.hadron.ad.gt | Audigent (Hadron ID)
+id.hadronid.net | Audigent (Hadron ID)
+id.rlcdn.com | LiveRamp
+id.sv.rkdms.com | Merkle (dentsu)
+id5-sync.com | ID5
+ident.mygaru.com | myGaru
+ids.ad.gt | Audigent
+ids4.ad.gt | Audigent
+idsync.rlcdn.com | LiveRamp
+idx.liadm.com | LiveIntent
+image2.pubmatic.com | PubMatic
+image4.pubmatic.com | PubMatic
+image6.pubmatic.com | PubMatic
+image8.pubmatic.com | PubMatic
+ipac.ctnsnet.com | Crimtan
+ittpx.eskimi.com | Eskimi
+jp-u.openx.net | OpenX
+lexicon.33across.com | 33Across
+live.rezync.com | Zeta Global
+login.dotomi.com | Epsilon (Conversant)
+match.360yield.com | Improve Digital (Azerion)
+match.adsrvr.org | The Trade Desk
+match.deepintent.com | DeepIntent
+match.prod.bidr.io | Beeswax (FreeWheel)
+match.sharethrough.com | Sharethrough (Equativ)
+medianet-match.dotomi.com | Epsilon (Conversant)
+mid.rkdms.com | Merkle (dentsu)
+ms-cookie-sync.presage.io | Ogury
+mug.criteo.com | Criteo
+oa.openxcdn.net | OpenX
+p.rfihub.com | Zeta Global
+pandg.tapad.com | Tapad (Experian)
+partners.tremorhub.com | Nexxen (Tremor)
+pippio.com | LiveRamp
+pixel-apac.rubiconproject.com | Magnite
+pixel-eu.rubiconproject.com | Magnite
+pixel-sync.sitescout.com | Basis Technologies
+pixel-us-east.rubiconproject.com | Magnite
+pixel-us-west.rubiconproject.com | Magnite
+pixel.33across.com | 33Across
+pixel.advertising.com | Yahoo (AOL)
+pixel.mathtag.com | MediaMath
+pixel.rubiconproject.com | Magnite
+pixel.sitescout.com | Basis Technologies
+pixel.tapad.com | Tapad (Experian)
+pixelfnt-us.dsp-api.moloco.com | Moloco
+pmp.mxptint.net | Valassis Digital (Vericast)
+prebid-match.dotomi.com | Epsilon (Conversant)
+prebid.sv.rkdms.com | Merkle (dentsu)
+prod.uidapi.com | The Trade Desk (UID2)
+public.servenobid.com | NoBid
+pxdrop.lijit.com | Sovrn
+pxl.iqm.com | IQM
+reports-s2s.intentiq.com | Intent IQ
+rp.liadm.com | LiveIntent
+rtb-csync.smartadserver.com | Equativ (Smart AdServer)
+rtb-use.mfadsrvr.com
+rtb-usw.mfadsrvr.com
+rtb.gumgum.com | GumGum
+rtb.mfadsrvr.com
+s.ad.smaato.net | Smaato (Verve)
+s.c.appier.net | Appier
+s.tribalfusion.com | Exponential Interactive (Tribal Fusion)
+s.uuidksinc.net
+secure.cdn.fastclick.net | Epsilon (Conversant)
+simage2.pubmatic.com | PubMatic
+simage4.pubmatic.com | PubMatic
+sr.rlcdn.com | LiveRamp
+ssbsync-global.smartadserver.com | Equativ (Smart AdServer)
+ssbsync-us.smartadserver.com | Equativ (Smart AdServer)
+ssbsync.smartadserver.com | Equativ (Smart AdServer)
+ssc-cms.33across.com | 33Across
+ssp-csync.smartadserver.com | Equativ (Smart AdServer)
+ssp-sync.criteo.com | Criteo
+ssp.api.tappx.com | Tappx
+ssum-sec.casalemedia.com | Index Exchange
+ssum.casalemedia.com | Index Exchange
+sync.1rx.io | Nexxen (Unruly)
+sync.a-mo.net | AMX RTB (Monet Engine)
+sync.adkernel.com | AdKernel
+sync.adtelligent.com | Adtelligent
+sync.aniview.com | Aniview
+sync.bfmio.com | Beachfront
+sync.connectad.io | ConnectAd
+sync.cootlogix.com | Vidazoo (Cootlogix)
+sync.go.sonobi.com | Sonobi
+sync.ingage.tech | Insticator
+sync.inmobi.com | InMobi
+sync.intentiq.com | Intent IQ
+sync.ipredictive.com | Viant (Adelphic)
+sync.kueezrtb.com | Kueez
+sync.mathtag.com | MediaMath
+sync.outbrain.com | Outbrain (Teads)
+sync.richaudience.com | Rich Audience
+sync.sharethis.com | ShareThis
+sync.smartadserver.com | Equativ (Smart AdServer)
+sync.sparteo.com | Sparteo
+sync.springserve.com | Magnite (SpringServe)
+sync.srv.stackadapt.com | StackAdapt
+sync.taboola.com | Taboola
+sync.targeting.unrulymedia.com | Nexxen (Unruly)
+sync.teads.tv | Teads
+syncingbridge.com
+tag.tapad.com | Tapad (Experian)
+tags.w55c.net | Roku (dataxu)
+throtle-match.dotomi.com | Epsilon (Conversant)
+token.rubiconproject.com | Magnite
+tr.blismedia.com | Blis
+trace.us.rtbwise.com
+u.openx.net | OpenX
+uid2.hadronid.net | Audigent (Hadron ID)
+um.simpli.fi | Simpli.fi
+ums.acuityplatform.com | illumin (AcuityAds)
+ups.analytics.yahoo.com | Yahoo
+us-u.openx.net | OpenX
+us.creativecdn.com | RTB House
+use3-sync.a-mo.net | AMX RTB (Monet Engine)
+user-data-us-east.bidswitch.net | BidSwitch (Criteo)
+user-sync.fwmrm.net | FreeWheel (Comcast)
+usersync.gumgum.com | GumGum
+usr.undertone.com | Undertone
+usync.ingage.tech | Insticator
+visitor.omnitagjs.com | Adyoulike
+x.bidswitch.net | BidSwitch (Criteo)
+yahoo-match.dotomi.com | Epsilon (Conversant)
+
+[ad-verification]
+cdn.confiant-integrations.net | Confiant
+cdn.doubleverify.com | DoubleVerify
+ep1.adtrafficquality.google | Google
+ep2.adtrafficquality.google | Google
+fw.adsafeprotected.com | Integral Ad Science
+js.ad-score.com | Adscore
+protected-by.clarium.io | ClarityAd (Clarium)
+rtb0.doubleverify.com | DoubleVerify
+rumcdn.geoedge.be | GeoEdge
+scripts.webcontentassessor.com | The Media Trust
+tagan.adlightning.com | Ad Lightning
+tps-dn-ue1.doubleverify.com | DoubleVerify
+tps.doubleverify.com | DoubleVerify
+tpsc-video-ue.doubleverify.com | DoubleVerify
+vast.doubleverify.com | DoubleVerify
+vtrk.dv.tech | DoubleVerify
+
+[affiliate]
+api.viglink.com | Sovrn (VigLink)
+ir-na.amazon-adsystem.com | Amazon
+p.skimresources.com | Skimlinks (Taboola)
+s.skimresources.com | Skimlinks (Taboola)
+t.skimresources.com | Skimlinks (Taboola)
+utt.impactcdn.com | Impact
+www.assoc-amazon.com | Amazon
+www.dwin1.com | Awin
+
+[data-broker]
+a.ad.gt | Audigent
+a.usbrowserspeed.com
+aa.agkn.com | TransUnion (Neustar)
+action.media6degrees.com | Dstillery
+alocdn.com | TowerData
+aorta.clickagy.com | Clickagy (ZoomInfo)
+api.permutive.app | Permutive
+assets.bounceexchange.com | Wunderkind (BounceX)
+b.6sc.co | 6sense
+c.6sc.co | 6sense
+cdn1.anonymised.io | Anonymised
+de.tynt.com | 33Across (Tynt)
+dmp.adform.net | Adform
+dp2.33across.com | 33Across
+events.bouncex.net | Wunderkind (BounceX)
+feed.pghub.io | Tapad (Experian)
+fid.agkn.com | TransUnion (Neustar)
+id.crwdcntrl.net | Lotame
+idpix.media6degrees.com | Dstillery
+j.6sc.co | 6sense
+l.sharethis.com | ShareThis
+loada.exelator.com | Nielsen (eXelate)
+loadm.exelator.com | Nielsen (eXelate)
+loadus.exelator.com | Nielsen (eXelate)
+ml314.com | Bombora
+na.edge.optable.co | Optable
+p.ad.gt | Audigent
+pd.sharethis.com | ShareThis
+people.api.zetaglobal.net | Zeta Global
+pghub.io | Tapad (Experian)
+pixel.onaudience.com | OnAudience
+pixels.ad.gt | Audigent
+ps.eyeota.net | Eyeota (Dun & Bradstreet)
+s.company-target.com | Demandbase
+segment.prod.bidr.io | Beeswax (FreeWheel)
+segments.company-target.com | Demandbase
+spl.zeotap.com | Zeotap
+static.anonymised.io | Anonymised
+sync.crwdcntrl.net | Lotame
+t.dtscdn.com | DTS Technology
+t.dtscout.com | DTS Technology
+t.sharethis.com | ShareThis
+tag.crsspxl.com | Cross Pixel
+tag.demandbase.com | Demandbase
+tag.researchnow.com | Dynata (Research Now)
+target.digitalaudience.io | Digital Audience
+thrtle.com | Throtle
+tr.lfeeder.com | Leadfeeder (Dealfront)
+track.sv.rkdms.com | Merkle (dentsu)
+uipglob.semasio.net | Semasio
+us.edge.optable.co | Optable
+ws.zoominfo.com | ZoomInfo
+www.mczbf.com | Epsilon (Conversant)
+
+[analytics]
+ads.scorecardresearch.com | Comscore
+akl-navvy.media.net | Media.net
+analytics.ahrefs.com | Ahrefs
+analytics.yahoo.com | Yahoo
+api-js.mixpanel.com | Mixpanel
+api.bounceexchange.com | Wunderkind (BounceX)
+api.mixpanel.com | Mixpanel
+api2.amplitude.com | Amplitude
+applets.ebxcdn.com | Echobox
+ariane.abtasty.com | AB Tasty
+async-px.dynamicyield.com | Dynamic Yield (Mastercard)
+azinsight.adsrvr.org | The Trade Desk
+beacon.taboola.com | Taboola
+c.statcounter.com | StatCounter
+cdn.attn.tv | Attentive
+cdn.brandmetrics.com | Brandmetrics
+cdn.pdst.fm | Spotify
+census-app.scorecardresearch.com | Comscore
+census-web.scorecardresearch.com | Comscore
+ch-trc-events.taboola.com | Taboola
+check.analytics.rlcdn.com | LiveRamp
+cloudflareinsights.com | Cloudflare
+collect.tealiumiq.com | Tealium
+collector-1.ex.co | EX.CO
+comcluster.cxense.com | Piano (Cxense)
+content.quantcount.com | Quantcast
+counter.yadro.ru | LiveInternet
+datacloud.tealiumiq.com | Tealium
+decide.mixpanel.com | Mixpanel
+edge.quantserve.com | Quantcast
+eu.logx.optimizely.com | Optimizely
+events.attentivemobile.com | Attentive
+events.browsiprod.com | Browsi
+events.newsroom.bi | Newsroom AI
+events.reddit.com | Reddit
+events.redditmedia.com | Reddit
+evt.undertone.com | Undertone
+ezoicanalytics.com | Ezoic
+hm.baidu.com | Baidu
+j.northbeam.io | Northbeam
+js.hs-analytics.net | HubSpot
+js.hsadspixel.net | HubSpot
+js.hscollectedforms.net | HubSpot
+lg3.media.net | Media.net
+log.byteoversea.com | ByteDance
+log.pinterest.com | Pinterest
+logx.optimizely.com | Optimizely
+mc.yandex.com | Yandex
+mc.yandex.ru | Yandex
+mcs-va.tiktokv.com | TikTok (ByteDance)
+metrics.brightcove.com | Brightcove
+metrics.getrockerbox.com | Rockerbox
+mon.byteoversea.com | ByteDance
+mon.tiktokv.com | TikTok (ByteDance)
+nmetrics.samsung.com | Samsung
+notify.bugsnag.com | Bugsnag (SmartBear)
+opus.analytics.yahoo.com | Yahoo
+p1.parsely.com | Parse.ly (Automattic)
+pi.ispot.tv | iSpot.tv
+ping.chartbeat.net | Chartbeat
+pixel-static.spotify.com | Spotify
+pixel.byspotify.com | Spotify
+pixel.quantcount.com | Quantcast
+pixel.quantserve.com | Quantcast
+pixel.web.roku.com | Roku
+pixel.wp.com | Automattic (WordPress.com)
+pixels.spotify.com | Spotify
+pong.chartbeat.net | Chartbeat
+prd.jwpltx.com | JW Player
+px.srvcs.tumblr.com | Tumblr (Automattic)
+quantserve.com | Quantcast
+region1.analytics.google.com | Google
+region1.google-analytics.com | Google
+rules.quantcount.com | Quantcast
+rum.hlx.page | Adobe
+s.adroll.com | AdRoll (NextRoll)
+s.update.adsrvr.org | The Trade Desk
+s1.listrakbi.com | Listrak
+s10.histats.com | Histats
+s4.histats.com | Histats
+sc-analytics.appspot.com | Snap
+secure-gl.imrworldwide.com | Nielsen
+secure.quantserve.com | Quantcast
+secure.statcounter.com | StatCounter
+siteimproveanalytics.com | Siteimprove
+siteintercept.qualtrics.com | Qualtrics
+smetrics.samsung.com | Samsung
+sp.analytics.yahoo.com | Yahoo
+static-tracking.klaviyo.com | Klaviyo
+static.cloudflareinsights.com | Cloudflare
+static.getclicky.com | Clicky
+tags.srv.stackadapt.com | StackAdapt
+top-fwz1.mail.ru | VK (Mail.ru)
+track.hubspot.com | HubSpot
+w3-reporting.reddit.com | Reddit
+whos.amung.us | whos.amung.us
+www.merchant-center-analytics.goog | Google
+wzrkt.com | CleverTap
+
+[session-recording]
+c.az.contentsquare.net | Contentsquare
+c.ba.contentsquare.net | Contentsquare
+c.contentsquare.net | Contentsquare
+ca.contentsquare.net | Contentsquare
+cdn.gbqofs.com | Glassbox
+cdn.inspectlet.com | Inspectlet
+cdn.luckyorange.com | Lucky Orange
+cdn.mouseflow.com | Mouseflow
+cdn.quantummetric.com | Quantum Metric
+content.hotjar.io | Hotjar (Contentsquare)
+edge.fullstory.com | FullStory
+eu01.rec.mouseflow.com | Mouseflow
+in.hotjar.com | Hotjar (Contentsquare)
+ingest.quantummetric.com | Quantum Metric
+ingestusipv4.quantummetric.com | Quantum Metric
+mc.webvisor.com | Yandex
+mc.webvisor.org | Yandex
+metrics.hotjar.io | Hotjar (Contentsquare)
+o2.mouseflow.com | Mouseflow
+pagestates-tracking.crazyegg.com | Crazy Egg
+r.lr-ingest.com | LogRocket
+rec.smartlook.com | Smartlook (Cisco)
+rs.fullstory.com | FullStory
+script.crazyegg.com | Crazy Egg
+script.hotjar.com | Hotjar (Contentsquare)
+settings.luckyorange.net | Lucky Orange
+static.hotjar.com | Hotjar (Contentsquare)
+surveystats.hotjar.io | Hotjar (Contentsquare)
+t.contentsquare.net | Contentsquare
+tools.luckyorange.com | Lucky Orange
+tracking.crazyegg.com | Crazy Egg
+us01.rec.mouseflow.com | Mouseflow
+vars.hotjar.com | Hotjar (Contentsquare)
+web-sdk.smartlook.com | Smartlook (Cisco)
+ws.hotjar.com | Hotjar (Contentsquare)
+
+[app-ads]
+adc3-launch.adcolony.com | Digital Turbine (AdColony)
+ads30.adcolony.com | Digital Turbine (AdColony)
+adserver.unityads.unity3d.com | Unity (Unity Ads)
+api.fyber.com | Digital Turbine (Fyber)
+api.vungle.com | Liftoff (Vungle)
+auction.unityads.unity3d.com | Unity (Unity Ads)
+b.applovin.com | AppLovin
+config.unityads.unity3d.com | Unity (Unity Ads)
+d.applovin.com | AppLovin
+events3alt.adcolony.com | Digital Turbine (AdColony)
+init.supersonicads.com | Unity (ironSource)
+live.chartboost.com | Chartboost
+ms.applovin.com | AppLovin
+outcome-ssp.supersonicads.com | Unity (ironSource)
+res4.applovin.com | AppLovin
+rt.applovin.com | AppLovin
+sdk-api-v1.singular.net | Singular
+wd.adcolony.com | Digital Turbine (AdColony)
+webview.unityads.unity3d.com | Unity (Unity Ads)
+
+[cryptominer]
+minero.cc | Minero
+monerominer.rocks | monerominer.rocks
+statdynamic.com
+webminepool.com | WebMinePool
+
+[other]
+a.omappapi.com | OptinMonster
+adeventtracker.spotify.com | Spotify
+t.vibe.co | Vibe

@@ -1,0 +1,400 @@
+# Builds, tests and publishes a release when a version tag such as v1.2.3 or v1.2.3-beta.1 is pushed.
+# The release has QuietHosts.exe and SHA256SUMS.txt, plus a build-provenance attestation for the exe.
+#
+# Three jobs keep third-party code away from the attestation:
+#   test     checks the tag and the docs, builds the whole solution and runs the tests. The test
+#            project's NuGet packages run here, so this job can only read the repository.
+#   build    builds QuietHosts.exe alone from the same commit (no test project, so no test packages),
+#            hashes it and attests it. Only this job can sign attestations.
+#   publish  waits for approval: give the "release" environment a required reviewer.
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+# No permissions by default. Each job asks for the minimum it needs.
+permissions: {}
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Check the tag, build and test
+    # A fixed image: windows-latest can move to a new Windows version without notice.
+    runs-on: windows-2025
+    # The window tests run one at a time: the tests take 7 to 20 minutes on a fast PC, and runners are slower.
+    timeout-minutes: 60
+    permissions:
+      contents: read # to check out the code
+    outputs:
+      version: ${{ steps.tag.outputs.version }}
+      commit: ${{ steps.tag.outputs.commit }}
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      TAG: ${{ github.ref_name }}
+      REPOSITORY: ${{ github.repository }}
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+      DOTNET_NOLOGO: "1"
+    steps:
+      - name: Check out the tagged commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # all branches and tags, so the tag can be checked against main and the last release
+          persist-credentials: false
+
+      - name: Check the tag
+        id: tag
+        run: |
+          # git's exit codes are checked below; a non-zero one (no earlier tag, lists changed) must not stop the script.
+          $PSNativeCommandUseErrorActionPreference = $false
+
+          # Only vX.Y.Z, or vX.Y.Z-prerelease such as v1.0.0-beta.1.
+          if ($env:TAG -cnotmatch '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[0-9A-Za-z]+(\.[0-9A-Za-z]+)*)?$') {
+            Write-Output '::error::This tag is not a version tag such as v1.2.3 or v1.2.3-beta.1.'
+            exit 1
+          }
+          $version = $env:TAG.Substring(1)
+
+          # The tagged commit must be on main.
+          $commit = git rev-parse --verify "refs/tags/$($env:TAG)^{commit}"
+          if ($LASTEXITCODE -ne 0 -or -not $commit) {
+            Write-Output '::error::The tag could not be resolved to a commit.'
+            exit 1
+          }
+          $head = git rev-parse HEAD
+          if ($commit -cne $head) {
+            Write-Output '::error::The checked-out commit is not the tagged commit.'
+            exit 1
+          }
+          git merge-base --is-ancestor $commit refs/remotes/origin/main
+          if ($LASTEXITCODE -ne 0) {
+            Write-Output '::error::The tagged commit is not on main. Push it to main first, then tag it.'
+            exit 1
+          }
+
+          # If anything in lists/ changed since an earlier release tag (guard.txt too), the lists need a new, later
+          # "# version:" date: the window offers the new list to people who update only when that date is newer
+          # (it compares the YYYY-MM-DD text). Every earlier v* tag counts, not only the newest: a tag whose run
+          # failed can't be deleted, and its lists may never have been released. A tag whose lists carry no valid
+          # date was never released (the tests reject such lists), so it is skipped.
+          $earlier = @()
+          git rev-parse --verify --quiet "$commit^" > $null
+          if ($LASTEXITCODE -eq 0) {
+            $earlier = @(git tag --list 'v*' --merged "$commit^")
+            if ($LASTEXITCODE -ne 0) {
+              Write-Output '::error::The earlier release tags could not be listed.'
+              exit 1
+            }
+          }
+          $pattern = '(?m)^# version: (\S+)\s*$'
+          $new = [regex]::Match([System.IO.File]::ReadAllText((Join-Path $env:GITHUB_WORKSPACE 'lists/default.txt')), $pattern).Groups[1].Value
+          foreach ($previous in $earlier) {
+            git diff --quiet $previous $commit -- lists/
+            $diffExit = $LASTEXITCODE
+            if ($diffExit -gt 1) {
+              Write-Output "::error::lists/ could not be compared with $previous."
+              exit 1
+            }
+            if ($diffExit -eq 1) {
+              $old = [regex]::Match(((git show "$($previous):lists/default.txt") -join "`n"), $pattern).Groups[1].Value
+              $date = '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'
+              if ($old -cmatch $date -and ($new -cnotmatch $date -or [string]::CompareOrdinal($new, $old) -le 0)) {
+                Write-Output "::error::lists/ changed since $previous, but the list version '$new' is not a date later than its '$old'. Set a new, later date in the '# version:' line of lists/default.txt and lists/strict.txt."
+                exit 1
+              }
+            }
+          }
+
+          "version=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "commit=$commit" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          Write-Output "Releasing QuietHosts $version from commit $commit."
+
+          # GitHub ends every pwsh step with "exit $LASTEXITCODE", the code of the last program this script ran.
+          # Codes the checks above expect, such as git rev-parse's 1 for a commit without a parent, must not fail
+          # the step, so end with success explicitly.
+          exit 0
+
+      - name: Check the docs (placeholders and address counts)
+        run: |
+          # git's exit codes are checked below; git grep's 1 (nothing found) must not stop the script.
+          $PSNativeCommandUseErrorActionPreference = $false
+          $root = $env:GITHUB_WORKSPACE
+          $failed = $false
+
+          # OWNER stands for the GitHub account until the repository is published. Links in a release must work,
+          # including the app's fallback link in AppInfo.cs, so no tracked file may still contain the placeholder:
+          # the docs, the issue forms, the code and every other text file (git grep -I skips binary files).
+          # The placeholder is written in two parts here, so this check never finds its own lines, and replacing
+          # the placeholder everywhere can't change this check.
+          $placeholder = 'OWNER' + '/QuietHosts'
+          $hits = @(git -C $root grep -l -I -F -e $placeholder)
+          $grepExit = $LASTEXITCODE
+          if ($grepExit -gt 1) {
+            Write-Output '::error::The tracked files could not be searched for the placeholder.'
+            exit 1
+          }
+          foreach ($file in $hits) {
+            Write-Output "::error file=$file::$file still contains the placeholder $placeholder. Replace OWNER with the account that owns the repository."
+            $failed = $true
+          }
+
+          # The address counts in README.md, and the list version and count in its example block, are typed by hand.
+          # They must match the lists (the app computes its own).
+          function Get-HostCount([string]$Path) {
+            @([System.IO.File]::ReadAllLines($Path) | Where-Object { $l = $_.Trim(); $l.Length -gt 0 -and $l[0] -ne '#' -and $l[0] -ne '[' }).Count
+          }
+          $inv = [System.Globalization.CultureInfo]::InvariantCulture
+          $standard = Get-HostCount (Join-Path $root 'lists/default.txt')
+          $strict = Get-HostCount (Join-Path $root 'lists/strict.txt')
+          $listVersion = [regex]::Match([System.IO.File]::ReadAllText((Join-Path $root 'lists/default.txt')), '(?m)^# version: (\S+)\s*$').Groups[1].Value
+          $readme = [System.IO.File]::ReadAllText((Join-Path $root 'README.md'))
+          $expected = @(
+            "**Standard (recommended)** blocks $($standard.ToString('N0', $inv)) ad and tracker addresses"
+            "**Strict** blocks $($strict.ToString('N0', $inv)) more, $(($standard + $strict).ToString('N0', $inv)) in all"
+            "| level=standard | lists=$listVersion | hosts=$($standard.ToString($inv)) |"
+          )
+          foreach ($line in $expected) {
+            if (-not $readme.Contains($line)) {
+              Write-Output "::error file=README.md::README.md doesn't say '$line'. Update its address counts and its example block (lists= and hosts=)."
+              $failed = $true
+            }
+          }
+          if ($failed) { exit 1 }
+
+          # GitHub ends every pwsh step with "exit $LASTEXITCODE": git grep's 1 (nothing found) is a success here.
+          exit 0
+
+      - name: Set up .NET (SDK version from global.json)
+        uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          global-json-file: global.json
+
+      - name: Build (Release, version and repository from the tag)
+        run: dotnet build QuietHosts.slnx -c Release "-p:Version=$env:VERSION" "-p:QuietHostsRepository=$env:REPOSITORY"
+
+      - name: Test (Release)
+        run: dotnet test QuietHosts.slnx -c Release --no-build "-p:Version=$env:VERSION" "-p:QuietHostsRepository=$env:REPOSITORY"
+
+  build:
+    name: Build QuietHosts.exe and attest it
+    needs: test
+    # The same fixed image as the test job.
+    runs-on: windows-2025
+    timeout-minutes: 30
+    permissions:
+      contents: read      # to check out the code
+      id-token: write     # to sign the build-provenance attestation
+      attestations: write # to store the attestation
+    outputs:
+      version: ${{ needs.test.outputs.version }}
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      TAG: ${{ github.ref_name }}
+      REPOSITORY: ${{ github.repository }}
+      VERSION: ${{ needs.test.outputs.version }}
+      COMMIT: ${{ needs.test.outputs.commit }}
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+      DOTNET_NOLOGO: "1"
+    steps:
+      - name: Check out the tagged commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Check that this is the commit the test job checked
+        run: |
+          $head = git rev-parse HEAD
+          if (-not $env:VERSION -or -not $env:COMMIT -or $head -cne $env:COMMIT) {
+            Write-Output "::error::The checked-out commit ($head) is not the one the test job checked ($env:COMMIT)."
+            exit 1
+          }
+
+      - name: Set up .NET (SDK version from global.json)
+        uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          global-json-file: global.json
+
+      # Only the app project. It compiles the engine's sources itself, and its only NuGet package is
+      # Microsoft's .NET Framework reference assemblies, so no test package runs in this job.
+      - name: Build QuietHosts.exe (Release, version and repository from the tag)
+        run: dotnet build src/QuietHosts/QuietHosts.csproj -c Release "-p:Version=$env:VERSION" "-p:QuietHostsRepository=$env:REPOSITORY"
+
+      - name: Put QuietHosts.exe and SHA256SUMS.txt in out/
+        run: |
+          $utf8 = New-Object System.Text.UTF8Encoding $false
+          $built = Join-Path $env:GITHUB_WORKSPACE 'src/QuietHosts/bin/Release/net48/QuietHosts.exe'
+          if (-not (Test-Path -LiteralPath $built -PathType Leaf)) {
+            Write-Output '::error::QuietHosts.exe was not found in src/QuietHosts/bin/Release/net48/.'
+            exit 1
+          }
+          $out = Join-Path $env:GITHUB_WORKSPACE 'out'
+          New-Item -ItemType Directory -Path $out | Out-Null
+          $exe = Join-Path $out 'QuietHosts.exe'
+          Copy-Item -LiteralPath $built -Destination $exe
+
+          # The exe must carry the version from the tag. Its ProductVersion is "X.Y.Z", maybe followed by "+<commit>".
+          $productVersion = (Get-Item -LiteralPath $exe).VersionInfo.ProductVersion
+          if (-not $productVersion -or $productVersion.Split('+')[0] -cne $env:VERSION) {
+            Write-Output "::error::QuietHosts.exe has version '$productVersion', not '$env:VERSION'."
+            exit 1
+          }
+
+          # Its links (and the "Managed by" line it writes into hosts files) must point to this repository.
+          # The repository URL is stored as UTF-8; the code's fallback literal is UTF-16, so it doesn't match here.
+          $bytes = [System.Text.Encoding]::GetEncoding(28591).GetString([System.IO.File]::ReadAllBytes($exe))
+          if (-not $bytes.Contains("https://github.com/$($env:REPOSITORY)") -or $bytes.Contains('github.com/OWNER/')) {
+            Write-Output "::error::QuietHosts.exe does not link to https://github.com/$($env:REPOSITORY)."
+            exit 1
+          }
+
+          # SHA256SUMS.txt: lowercase hex, two spaces, the file name, LF.
+          $hash = (Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant()
+          [System.IO.File]::WriteAllText((Join-Path $out 'SHA256SUMS.txt'), "$hash  QuietHosts.exe`n", $utf8)
+          Get-Content -LiteralPath (Join-Path $out 'SHA256SUMS.txt')
+
+      - name: Write the release notes (CHANGELOG section plus how to verify)
+        run: |
+          $utf8 = New-Object System.Text.UTF8Encoding $false
+          $out = Join-Path $env:GITHUB_WORKSPACE 'out'
+
+          # The section starts at "## [X.Y.Z]" or "## [X.Y.Z] - date" and ends at the next "## " heading
+          # or at the link definitions at the bottom of the file.
+          $lines = [System.IO.File]::ReadAllLines((Join-Path $env:GITHUB_WORKSPACE 'CHANGELOG.md'))
+          $heading = "## [$env:VERSION]"
+          $start = -1
+          for ($i = 0; $i -lt $lines.Count; $i++) {
+            $line = $lines[$i].TrimEnd()
+            if ($line -ceq $heading -or $line.StartsWith("$heading - ", [System.StringComparison]::Ordinal)) {
+              $start = $i
+              break
+            }
+          }
+          if ($start -lt 0) {
+            Write-Output "::error::CHANGELOG.md has no '$heading' section."
+            exit 1
+          }
+          $end = $lines.Count
+          for ($i = $start + 1; $i -lt $lines.Count; $i++) {
+            if ($lines[$i].StartsWith('## ', [System.StringComparison]::Ordinal) -or $lines[$i] -cmatch '^\[[^\]]+\]:\s') {
+              $end = $i
+              break
+            }
+          }
+          $section = ''
+          if ($end -gt $start + 1) {
+            $section = ($lines[($start + 1)..($end - 1)] -join "`n").Trim()
+          }
+          if ($section.Length -eq 0) {
+            Write-Output "::error::The '$heading' section in CHANGELOG.md is empty."
+            exit 1
+          }
+
+          # The counts in README.md are filled in before a release; no placeholder may be left.
+          $readme = [System.IO.File]::ReadAllText((Join-Path $env:GITHUB_WORKSPACE 'README.md'))
+          if ($readme -cmatch '\{\{[A-Z_]+\}\}' -or $section -cmatch '\{\{[A-Z_]+\}\}') {
+            Write-Output '::error::README.md or the CHANGELOG section still contains a {{...}} placeholder.'
+            exit 1
+          }
+
+          $sums = [System.IO.File]::ReadAllText((Join-Path $out 'SHA256SUMS.txt')).TrimEnd()
+          $fence = '```'
+          $notes = @(
+            $section
+            ''
+            '## Verify your download'
+            ''
+            'QuietHosts.exe is not signed yet. Before you run it, check that your download is complete and unchanged. In PowerShell:'
+            ''
+            $fence
+            'Get-FileHash "$env:USERPROFILE\Downloads\QuietHosts.exe" -Algorithm SHA256'
+            $fence
+            ''
+            'Or in Command Prompt:'
+            ''
+            $fence
+            'certutil -hashfile "%USERPROFILE%\Downloads\QuietHosts.exe" SHA256'
+            $fence
+            ''
+            'Compare the result with the QuietHosts.exe line in SHA256SUMS.txt (GitHub also shows it next to the file); case doesn''t matter. SHA256SUMS.txt for this release:'
+            ''
+            $fence
+            $sums
+            $fence
+            ''
+            'The hash catches broken or swapped downloads, not a hijacked account. The attestation is stronger: it proves that this repository''s release workflow built the file. With the GitHub CLI, in the folder that holds QuietHosts.exe:'
+            ''
+            $fence
+            "gh attestation verify QuietHosts.exe -R $env:REPOSITORY --signer-workflow $env:REPOSITORY/.github/workflows/release.yml"
+            "gh release verify-asset $env:TAG QuietHosts.exe -R $env:REPOSITORY"
+            $fence
+            ''
+            ('If Windows says "Windows protected your PC", click More info, check that it says App: QuietHosts.exe, then click Run anyway. More help: https://github.com/' + $env:REPOSITORY + '#if-windows-warns-you')
+          )
+          [System.IO.File]::WriteAllText((Join-Path $out 'notes.md'), (($notes -join "`n") + "`n"), $utf8)
+
+          # Show the notes in the log without running any "::command::" lines they might contain.
+          $token = [System.Guid]::NewGuid().ToString('N')
+          Write-Output "::stop-commands::$token"
+          Get-Content -LiteralPath (Join-Path $out 'notes.md')
+          Write-Output "::$($token)::"
+
+      - name: Attest build provenance for QuietHosts.exe
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-path: out/QuietHosts.exe
+
+      - name: Upload out/
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: release
+          path: out/
+          if-no-files-found: error
+          retention-days: 30 # longer than the longest wait for approval
+
+  publish:
+    name: Publish the release
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Waits for approval by a required reviewer of the "release" environment.
+    environment: release
+    permissions:
+      contents: write # to create the release and upload its files
+    steps:
+      - name: Download out/
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: release
+          path: out
+
+      - name: Check the files against SHA256SUMS.txt
+        working-directory: out
+        run: |
+          set -euo pipefail
+          test -f QuietHosts.exe
+          test -f notes.md
+          sha256sum --check --strict SHA256SUMS.txt
+
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ github.ref_name }}
+          VERSION: ${{ needs.build.outputs.version }}
+        run: |
+          set -euo pipefail
+          test -n "$VERSION"
+          prerelease=()
+          if [[ "$TAG" == *-* ]]; then
+            prerelease=(--prerelease)
+          fi
+          gh release create "$TAG" out/QuietHosts.exe out/SHA256SUMS.txt --verify-tag --title "QuietHosts $VERSION" --notes-file out/notes.md "${prerelease[@]}"

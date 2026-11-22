@@ -1,0 +1,14 @@
+# Normalize text files to LF in the repository.
+* text=auto eol=lf
+
+# Windows-only files keep CRLF.
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Binary files.
+*.ico binary
+*.png binary
+*.exe binary
+
+# Block lists: keep the exact bytes (LF), so the embedded lists match the repository.
+lists/*.txt text eol=lf
