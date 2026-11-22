@@ -114,6 +114,28 @@ namespace QuietHosts.Tests.Ui
             Assert.NotEqual("Default", used);
         }
 
+        /// <summary>
+        /// A window may grow as tall as its pretend screen, whatever the real screen is. Windows keeps a window about as tall
+        /// as the real screen: on a CI runner's 1024x768 screen the 841-pixel main window with three notices came out about
+        /// 780 pixels tall, so a test measured a cut window.
+        /// </summary>
+        [Fact]
+        public void A_window_may_grow_as_tall_as_its_pretend_screen()
+        {
+            Sta.Run(() =>
+            {
+                int limit = SystemInformation.MaxWindowTrackSize.Height;
+                using (var w = new TestWindow())
+                {
+                    w.Add(new Panel { Size = new Size(200, limit + 100) });
+                    w.PreviewWorkingArea = new Rectangle(0, 0, 2000, limit + 400);
+                    Sta.ShowOffScreen(w);
+                    Assert.True(w.Height > limit + 100, "the window is " + w.Height + " px tall; Windows' own limit is " + limit + " px");
+                    w.Close();
+                }
+            });
+        }
+
         [Fact]
         public void The_main_window_shows_every_state()
         {

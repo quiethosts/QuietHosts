@@ -255,6 +255,11 @@ namespace QuietHosts
                 case WM_THEMECHANGED:
                     ThemeManager.RequestRefresh(reapplyNative: true);
                     break;
+#if DEBUG || QUIETHOSTS_UI_TESTS
+                case WM_GETMINMAXINFO:
+                    AllowPreviewSize(m.LParam);
+                    break;
+#endif
             }
         }
 
@@ -305,6 +310,45 @@ namespace QuietHosts
         public bool PreviewNoActivate { get; set; }
 
         protected override bool ShowWithoutActivation => PreviewNoActivate || base.ShowWithoutActivation;
+
+        private const int WM_GETMINMAXINFO = 0x0024;
+        private const uint SWP_NOMOVE = 0x0002, SWP_NOZORDER = 0x0004, SWP_NOACTIVATE = 0x0010, SWP_NOOWNERZORDER = 0x0200;
+
+        /// <summary>
+        /// A window with a pretend screen gets the size it asks for, even beyond the real screen: Form keeps every window no
+        /// larger than Windows' maximum track size (about the real screen) before Windows itself does, so the size is set
+        /// again through Windows, which <see cref="AllowPreviewSize"/> lets allow it.
+        /// </summary>
+        protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
+        {
+            base.SetBoundsCore(x, y, width, height, specified);
+            if (!PreviewWorkingArea.HasValue || !MaximumSize.IsEmpty || !IsHandleCreated || WindowState != FormWindowState.Normal) return;
+            if (Width >= width && Height >= height) return;
+            SetWindowPos(Handle, IntPtr.Zero, 0, 0, Math.Max(Width, width), Math.Max(Height, height), SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE | SWP_NOOWNERZORDER);
+        }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        [System.Runtime.InteropServices.DefaultDllImportSearchPaths(System.Runtime.InteropServices.DllImportSearchPath.System32)]
+        [return: System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.Bool)]
+        private static extern bool SetWindowPos(IntPtr hwnd, IntPtr insertAfter, int x, int y, int cx, int cy, uint flags);
+
+        /// <summary>
+        /// Lets a window grow as large as its pretend screen (<see cref="PreviewWorkingArea"/>). Windows keeps every window
+        /// about as large as the real screen at most, so on a smaller real screen tests and --render-ui measured a cut window
+        /// where the pretend screen had room: a CI runner's 1024x768 screen cut the 841-pixel main window with three notices
+        /// to about 780 pixels. A window with a MaximumSize of its own keeps that limit.
+        /// </summary>
+        private void AllowPreviewSize(IntPtr minMaxInfo)
+        {
+            if (!PreviewWorkingArea.HasValue || minMaxInfo == IntPtr.Zero || !MaximumSize.IsEmpty) return;
+            Rectangle area = PreviewWorkingArea.Value;
+            // MINMAXINFO is five POINTs: ptReserved, ptMaxSize, ptMaxPosition, ptMinTrackSize and ptMaxTrackSize (byte 32).
+            const int maxTrackX = 32, maxTrackY = 36;
+            int x = System.Runtime.InteropServices.Marshal.ReadInt32(minMaxInfo, maxTrackX);
+            int y = System.Runtime.InteropServices.Marshal.ReadInt32(minMaxInfo, maxTrackY);
+            System.Runtime.InteropServices.Marshal.WriteInt32(minMaxInfo, maxTrackX, Math.Max(x, area.Width));
+            System.Runtime.InteropServices.Marshal.WriteInt32(minMaxInfo, maxTrackY, Math.Max(y, area.Height));
+        }
 #endif
 
         protected override void Dispose(bool disposing)
